@@ -1,0 +1,1 @@
+ puppet apply --certname=puppet.exoremote.com --manifestdir=/etc/puppet/environments/development/manifests --modulepath=/etc/puppet/environments/development/modules -e 'include profiles::puppet::master'
