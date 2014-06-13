@@ -1,4 +1,4 @@
-class site::profiles::puppet::agent {
+class profiles::puppet::agent {
   include puppet::agent
   include puppet::agent::config
 }

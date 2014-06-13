@@ -1,9 +1,9 @@
-class site::profiles::puppet::master {
+class profiles::puppet::master {
 
-  anchor { '::site::profiles::puppet::master': }
+  anchor { '::profiles::puppet::master': }
 
   Class {
-    require => Anchor['::site::profiles::puppet::master']
+    require => Anchor['::profiles::puppet::master']
   }
 
   class { '::puppet::server':
