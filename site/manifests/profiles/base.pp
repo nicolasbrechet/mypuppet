@@ -1,3 +1,3 @@
-class profiles::base {
+class site::profiles::base {
   include ntp
 }
