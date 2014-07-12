@@ -46,3 +46,9 @@ mod 'puppetlabs_apt', :git => 'https://github.com/puppetlabs-operations/puppet-p
 
 mod 'puppetboard', :git => 'https://github.com/nibalizer/puppet-module-puppetboard.git', :ref => '2.5.0'
 mod 'stankevich/python', '1.7.5'
+
+#
+# PHP
+#
+mod 'php', :git => 'https://github.com/jippi/puppet-php'
+
