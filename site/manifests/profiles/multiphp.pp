@@ -19,7 +19,7 @@ class site::profiles::multiphp {
     custom_fragment => 'ProxyPassMatch ^/(.*\.php(/.*)?)$ fcgi://127.0.0.1:9002/var/www/html/$1'
   }
   
-  apache::vhost { 'truc2.com':
+  apache::vhost { 'truc3.com':
     port            => '80',
     docroot         => '/var/www/html',
     custom_fragment => 'ProxyPassMatch ^/(.*\.php(/.*)?)$ fcgi://127.0.0.1:9003/var/www/html/$1'
