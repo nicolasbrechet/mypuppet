@@ -3,7 +3,7 @@ forge 'forge.puppetlabs.com'
 # # Common modules
 ##################
 #
-# Git : Check version requirement
+# Git : Check version requirement
 #
 mod 'puppetlabs/git', '0.1.0'
 
