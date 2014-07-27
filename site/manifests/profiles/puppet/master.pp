@@ -6,6 +6,13 @@ class site::profiles::puppet::master {
     require => Anchor['::site::profiles::puppet::master']
   }
   
+  #class { 'ssh::server':
+  #  options => {
+  #    'PasswordAuthentication'  => 'no',
+  #    'PermitRootLogin'         => 'yes',
+  #  },
+  #}
+  
   class { '::puppet::server':
     modulepath         => ['$confdir/environments/$environment/modules', '$confdir/environments/$environment/'],
     manifest           => '$confdir/environments/$environment/site/manifests/site.pp',

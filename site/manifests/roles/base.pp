@@ -1,4 +1,4 @@
 class site::roles::base {
-  notify {"Environment : $::environment": }
+  #notify {"Environment : $::environment": }
   include site::profiles::base
 }
