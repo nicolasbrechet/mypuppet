@@ -52,3 +52,7 @@ mod 'stankevich/python', '1.7.5'
 #
 mod 'php', :git => 'https://github.com/jippi/puppet-php'
 
+#
+# SSH
+#
+mod 'ssh', :git => 'https://github.com/saz/puppet-ssh'
