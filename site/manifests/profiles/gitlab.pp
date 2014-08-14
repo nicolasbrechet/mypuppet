@@ -16,6 +16,8 @@ class site::profiles::gitlab {
 	}
 
 	class { '::gitlab':
+    gitlab_http_port        => '1080',
+    gitlab_ssl_port         => '443',
 		git_email								=> "gitlab@nicolasbrechet.com",
 	  gitlab_domain     			=> 'gitlab.nicolasbrechet.com',
 		gitlab_branch						=> '7-1-stable',
