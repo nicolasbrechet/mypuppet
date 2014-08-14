@@ -44,4 +44,3 @@ class site::profiles::gitlab {
 	  } ->
 	  exec { '/usr/sbin/service nginx reload': }
 }
-}
