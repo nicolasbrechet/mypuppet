@@ -56,3 +56,11 @@ mod 'php', :git => 'https://github.com/jippi/puppet-php'
 # SSH
 #
 mod 'ssh', :git => 'https://github.com/saz/puppet-ssh'
+
+
+#
+# GitLab
+#
+mod 'gitlab', :git => 'https://github.com/sbadia/puppet-gitlab'
+mod 'gitlab-requirements', :git => 'https://github.com/sbadia/puppet-gitlab-requirements'
+mod 'alup/rbenv'
