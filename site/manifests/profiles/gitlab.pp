@@ -15,7 +15,7 @@ class site::profiles::gitlab {
 	  gitlab_dbpwd    => $gitlab_dbpwd,
 	}
 
-	class { 'gitlab':
+	class { '::gitlab':
 		git_email								=> "gitlab@nicolasbrechet.com",
 	  gitlab_domain     			=> 'gitlab.nicolasbrechet.com',
 		gitlab_branch						=> '7-1-stable',
