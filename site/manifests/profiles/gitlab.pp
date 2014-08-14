@@ -38,8 +38,5 @@ class site::profiles::gitlab {
 		ldap_bind_password   		=> "password",
 	}
 	
-	Class['gitlab_requirements'] -> Class['gitlab'] ->
-	  file { '/etc/nginx/conf.d/default.conf':
-	    ensure => absent,
-	  }
+	Class['gitlab_requirements'] -> Class['gitlab']
 }
