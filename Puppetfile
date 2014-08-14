@@ -61,6 +61,11 @@ mod 'ssh', :git => 'https://github.com/saz/puppet-ssh'
 #
 # GitLab
 #
-mod 'gitlab', :git => 'https://github.com/sbadia/puppet-gitlab'
-mod 'gitlab_requirements', :git => 'https://github.com/sbadia/puppet-gitlab-requirements'
+mod 'gitlab',               :git => 'https://github.com/sbadia/puppet-gitlab'
+mod 'gitlab_requirements',  :git => 'https://github.com/sbadia/puppet-gitlab-requirements'
+mod 'ruby',                 :git => 'https://github.com/puppetlabs/puppetlabs-ruby'
+mod 'redis',                :git => 'https://github.com/fsalum/puppet-redis'
+mod 'mysql',                :git => 'http://github.com/puppetlabs/puppetlabs-mysql'
+mod 'logrotate',            :git => 'https://github.com/evenup/evenup-logrotate'
+mod 'sysctl',               :git => 'https://github.com/thias/puppet-sysctl'
 mod 'alup/rbenv'
