@@ -41,6 +41,5 @@ class site::profiles::gitlab {
 	Class['gitlab_requirements'] -> Class['gitlab'] ->
 	  file { '/etc/nginx/conf.d/default.conf':
 	    ensure => absent,
-	  } ->
-	  exec { '/usr/sbin/service nginx reload': }
+	  }
 }
