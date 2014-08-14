@@ -22,6 +22,8 @@ class site::profiles::puppet::master {
   class { 'puppetdb::master::config': } ->
   class { 'puppetboard': 
     manage_virtualenv => true,
+    manage_git        => true,
+    reports_count     => 40,
   }
   
   class { 'apache::mod::wsgi': }
