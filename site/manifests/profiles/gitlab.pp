@@ -30,7 +30,7 @@ class site::profiles::gitlab {
 	  gitlab_dbname     			=> $gitlab_dbname,
 	  gitlab_dbuser     			=> $gitlab_dbuser,
 	  gitlab_dbpwd      			=> $gitlab_dbpwd,			                  			
-		gitlab_ssl      				=> true,
+		gitlab_ssl      				=> false,
 		gitlab_ssl_cert   			=> "/etc/ssl/certs/ssl-cert-snakeoil.pem",
 		gitlab_ssl_key    			=> "/etc/ssl/private/ssl-cert-snakeoil.key",
 		gitlab_ssl_self_signed	=> false,
