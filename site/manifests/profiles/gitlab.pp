@@ -9,6 +9,10 @@ class site::profiles::gitlab {
   #
   #Exec['initial update'] -> Package <| |>
 
+  class {'nginx':
+    confd_purge => true,
+  }
+  
 	class { 'gitlab_requirements':
 	  gitlab_dbname   => $gitlab_dbname,
 	  gitlab_dbuser   => $gitlab_dbuser,
@@ -40,8 +44,5 @@ class site::profiles::gitlab {
 		ldap_bind_password   		=> "password",
 	}
   
-  file { '/etc/nginx/conf.d/default.conf':
-    ensure => absent,
-  } ->
 	Class['gitlab_requirements'] -> Class['gitlab']
 }
