@@ -3,11 +3,11 @@ class site::profiles::gitlab {
 	$gitlab_dbuser	= "nbt_gitlab_user"
 	$gitlab_dbpwd 	= "XYHLYFstit36}]z3iYVw"
 
-  exec { 'initial update':
-    command   => '/usr/bin/apt-get update',
-  }
-  
-  Exec['initial update'] -> Package <| |>
+  #exec { 'initial update':
+  #  command   => '/usr/bin/apt-get update',
+  #}
+  #
+  #Exec['initial update'] -> Package <| |>
 
 	class { 'gitlab_requirements':
 	  gitlab_dbname   => $gitlab_dbname,
