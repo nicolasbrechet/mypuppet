@@ -37,15 +37,11 @@ class site::profiles::gitlab {
 		ldap_enabled    				=> false,
 	}
   
-  class { 'apache':
-    default_vhost => false,
-  }
   
   apache::vhost { 'gitlab.nicolasbrechet.com':
     docroot => '/home/git/gitlab/public',
     ssl     => true,
-    
-    
+    priority => '10',   
   }
   
 	Class['gitlab_requirements'] -> Class['gitlab']
