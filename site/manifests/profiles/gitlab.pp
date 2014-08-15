@@ -41,7 +41,6 @@ class site::profiles::gitlab {
   apache::vhost { 'gitlab.nicolasbrechet.com':
     docroot => '/home/git/gitlab/public',
     ssl     => true,
-    priority => '10',   
   }
   
 	Class['gitlab_requirements'] -> Class['gitlab']
