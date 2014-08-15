@@ -12,9 +12,6 @@ class site::profiles::gitlab {
   class {'nginx':
     confd_purge => true,
   }
-  service {'nginx':
-    ensure => "stopped",
-  }
   
 	class { 'gitlab_requirements':
 	  gitlab_dbname   => $gitlab_dbname,
