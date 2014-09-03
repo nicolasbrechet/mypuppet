@@ -31,15 +31,5 @@ class site::profiles::puppet::master {
     vhost_name => $::fqdn,
     port       => 80,
   }
-  
-  postgresql::server::pg_hba_rule { 'Trust all localhost connections':
-    type        => 'host',
-    address     => '127.0.0.1/32',
-    database    => 'all',
-    user        => 'postgres',
-    auth_method => 'trust',
-    /* Important, this must be the 1st rule */
-    order       => '000'
-  }
 
 }
