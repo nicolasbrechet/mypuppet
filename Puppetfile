@@ -31,7 +31,7 @@ mod 'puppet',   :git => "https://github.com/nicolasbrechet/puppet-puppet.git", :
 #
 
 mod 'puppetlabs/ntp',         '3.1.1'
-mod 'puppetlabs/apt',         '1.5.0'
+mod 'puppetlabs/apt',         '1.6.0'
 mod 'puppetlabs/concat',      '1.1.0'
 mod 'puppetlabs/firewall',    '1.1.2'
 mod 'puppetlabs/stdlib',      '4.2.2'

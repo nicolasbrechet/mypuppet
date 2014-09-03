@@ -39,8 +39,13 @@ class site::profiles::gitlab {
   
   
   apache::vhost { 'gitlab.nicolasbrechet.com':
-    docroot => '/home/git/gitlab/public',
-    ssl     => true,
+    docroot               => '/home/git/gitlab/public',
+    ssl                   => true,
+    ssl_protocol          => 'all -SSLv2',
+    ssl_honorcipherorder  => 'on',
+    ssl_cipher            => '"ECDH+AESGCM:DH+AESGCM:ECDH+AES256:DH+AES256:ECDH+AES128:DH+AES:ECDH+3DES:DH+3DES:RSA+AESGCM:RSA+AES:RSA+3DES:!aNULL:!MD5:!DSS"',
+    
+    
   }
   
 	Class['gitlab_requirements'] -> Class['gitlab']
