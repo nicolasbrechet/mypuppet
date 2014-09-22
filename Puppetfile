@@ -6,7 +6,7 @@ mod 'sudo', :git => 'https://github.com/saz/puppet-sudo.git', :ref => 'v3.0.1'
 
 mod 'puppetlabs/passenger',   '0.2.0'
 mod 'puppetlabs/postgresql',  '3.3.3'
-mod 'puppetlabs/ruby',        '0.1.0'
+mod 'puppetlabs/ruby',        '0.3.0'
 mod 'puppetlabs/inifile',     '1.1.0'
 mod 'jfryman/nginx',          '0.0.9'
 mod 'puppetdb', :git => "https://github.com/puppetlabs/puppetlabs-puppetdb.git", :ref => 'cbcf042f5418ae1d8943588034f372817b3955cf'
