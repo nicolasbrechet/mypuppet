@@ -1,3 +1,4 @@
-hiera_include('classes')
+$classes = hiera('classes')
+include $classes
 Exec { path => [ "/bin/", "/sbin/" , "/usr/bin/", "/usr/sbin/", "/usr/local/bin", "/usr/local/sbin" ] }
 node default { }
