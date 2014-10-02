@@ -47,3 +47,10 @@ mod 'mysql',                :git => 'http://github.com/puppetlabs/puppetlabs-mys
 mod 'logrotate',            :git => 'https://github.com/evenup/evenup-logrotate'
 mod 'sysctl',               :git => 'https://github.com/thias/puppet-sysctl'
 mod 'alup/rbenv'
+
+mod 'abstractit/icinga'
+mod 'abstractit/pnp4nagios'
+mod 'abstractit/monitoring'
+mod 'abstractit/nrpe'
+mod 'abstractit/sudo'
+mod 'puppetlabs/mysql'
