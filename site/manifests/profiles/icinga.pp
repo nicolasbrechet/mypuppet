@@ -29,7 +29,6 @@ class site::profiles::icinga {
     table      => '*.*',
     user       => 'icinga@localhost',
   } ->
-  class {'::icinga':
-  }
+  include icinga
 
 }
