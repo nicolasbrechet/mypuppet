@@ -1,0 +1,8 @@
+name    'mypuppet'
+version '0.1.0'
+source 'https://github.com/nicolasbrechet/mypuppet'
+author 'Nicolas Brechet'
+license 'WTFPL'
+summary 'Site module for myself'
+description 'only testing stuff'
+project_page 'https://github.com/nicolasbrechet/mypuppet'

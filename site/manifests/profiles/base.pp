@@ -13,5 +13,4 @@ class site::profiles::base {
       'PermitRootLogin'         => 'yes',
     },
   }
-  
 }
