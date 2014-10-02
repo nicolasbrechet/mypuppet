@@ -15,7 +15,7 @@ mod 'puppetlabs/ntp'
 
 mod 'jfryman/nginx'
 
-mod 'apache' , :git => "https://github.com/puppetlabs/puppetlabs-apache"
+mod 'puppetlabs/apache'
 mod 'puppetlabs/apt'
 mod 'puppetlabs_apt', :git => 'https://github.com/puppetlabs-operations/puppet-puppetlabs_apt.git', :ref => '0.0.3'
 mod 'puppetlabs/concat'
@@ -24,3 +24,11 @@ mod 'puppetlabs/nodejs'
 mod 'puppetlabs/stdlib'
 mod 'puppetlabs/vcsrepo'
 mod 'richardc/datacat'
+
+# Monitoring ( and dependencies)
+mod 'abstractit/icinga'
+mod 'abstractit/pnp4nagios'
+mod 'abstractit/monitoring'
+mod 'abstractit/nrpe'
+mod 'abstractit/sudo'
+mod 'puppetlabs/mysql'
