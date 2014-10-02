@@ -24,6 +24,7 @@ mod 'puppetlabs/nodejs'
 mod 'puppetlabs/stdlib'
 mod 'puppetlabs/vcsrepo'
 mod 'richardc/datacat'
+mod 'puppetlabs/git'
 
 # Monitoring ( and dependencies)
 mod 'abstractit/icinga'
