@@ -2,7 +2,8 @@ class site::profiles::icinga {
   
   package {['icinga', 'icinga-idoutils']:
     ensure => present,
-  } ->  
+  } 
+  
   class {'::mysql::server':
   } ->
   mysql_database { 'icinga':
@@ -28,7 +29,8 @@ class site::profiles::icinga {
     privileges => ['ALL'],
     table      => '*.*',
     user       => 'icinga@localhost',
-  } ->
+  }
+  
   include icinga
 
 }
