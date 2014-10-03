@@ -28,7 +28,7 @@ class site::profiles::monitoring_server {
     ensure => present,
   }
   
-  Group['nrpre'] 
+  Group['nrpe'] 
   -> User['nrpe'] 
   -> Class['nrpe'] 
   -> Class['nrpre::monitoring']
