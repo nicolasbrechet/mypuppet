@@ -25,9 +25,15 @@ class site::profiles::monitoring_server {
     privileges => ['ALL'],
     table      => '*.*',
     user       => 'icinga@localhost',
-  }
+  } ->
+  group {'nrpe':
+  } -> 
+  user {'nrpe':}  
   
   apache::mod { 'authn_core': }
+  
+  
+  
   
   include icinga
   include pnp4nagios
