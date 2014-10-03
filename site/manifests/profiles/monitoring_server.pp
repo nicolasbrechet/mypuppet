@@ -27,9 +27,8 @@ class site::profiles::monitoring_server {
     user       => 'icinga@localhost',
   }
   
+  apache::mod { 'authn_core': }
+  
   include icinga
   include pnp4nagios
-  include monitoring
-  include nrpe
-  include nrpe::monitoring
 }
