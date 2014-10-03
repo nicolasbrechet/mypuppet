@@ -28,5 +28,8 @@ class site::profiles::monitoring_server {
   }
   
   include icinga
-
+  include pnp4nagios
+  include monitoring
+  include nrpe
+  include nrpe::monitoring
 }
