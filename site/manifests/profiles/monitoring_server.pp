@@ -2,41 +2,35 @@ class site::profiles::monitoring_server {
   
   class {'::mysql::server':
   } ->
-  mysql_database { 'icinga':
-    ensure  => 'present',
-    charset => 'utf8',
-    collate => 'utf8_swedish_ci',
+  mysql::db { 'icinga DB':
+    dbname    => hiera('icinga::params::ido_db_name'),
+    user      => hiera('icinga::params::ido_db_user'),
+    password  => hiera('icinga::params::ido_db_pass'),
+    host      => hiera('icinga::params::ido_db_host'),
   } ->
-  mysql_database { 'icinga_web':
-    ensure  => 'present',
-    charset => 'utf8',
-    collate => 'utf8_swedish_ci',
-  } ->  
-  mysql_user { 'icinga@localhost':
-    ensure                   => 'present',
-    max_connections_per_hour => '0',
-    max_queries_per_hour     => '0',
-    max_updates_per_hour     => '0',
-    max_user_connections     => '0',
-  } ->  
-  mysql_grant { 'icinga@localhost/*.*':
-    ensure     => 'present',
-    options    => ['GRANT'],
-    privileges => ['ALL'],
-    table      => '*.*',
-    user       => 'icinga@localhost',
-  } ->
-  group {'nrpe':
-  } -> 
-  user {'nrpe':}  
-  
-  apache::mod { 'authn_core': }
-  
-  
-  
+  mysql::db { 'icinga web DB':
+    dbname    => hiera('icinga::params::web_db_name'),
+    user      => hiera('icinga::params::web_db_user'),
+    password  => hiera('icinga::params::web_db_pass'),
+    host      => hiera('icinga::params::web_db_host')
+  }
   
   include icinga
   include pnp4nagios
   include nrpe
   include nrpe::monitoring
+  
+  group {'nrpe':
+    ensure => present,
+  }
+  
+  user {'nrpe':
+    ensure => present,
+  }
+  
+  Group['nrpre'] 
+  -> User['nrpe'] 
+  -> Class['nrpe'] 
+  -> Class['nrpre::monitoring']
+  
 }

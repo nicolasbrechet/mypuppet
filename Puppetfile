@@ -48,7 +48,7 @@ mod 'logrotate',            :git => 'https://github.com/evenup/evenup-logrotate'
 mod 'sysctl',               :git => 'https://github.com/thias/puppet-sysctl'
 mod 'alup/rbenv'
 
-mod 'icinga',               :git => 'https://github.com/nicolasbrechet/abstractit-icinga', :ref => 'fix_apache_mod'
+mod 'icinga',               :git => 'https://github.com/nicolasbrechet/abstractit-icinga', :ref => 'development'
 mod 'pnp4nagios',           :git => 'https://github.com/nicolasbrechet/puppet-pnp4nagios', :ref => 'fix_non_ascii'
 mod 'abstractit/monitoring'
 mod 'abstractit/nrpe'
