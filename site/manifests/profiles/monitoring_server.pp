@@ -1,8 +1,8 @@
 class site::profiles::monitoring_server {
   
-  package {['icinga', 'icinga-doc', 'icinga-gui', 'icinga-idoutils-libdbi-mysql']:
-    ensure => present,
-  } 
+  #package {['icinga', 'icinga-doc', 'icinga-gui', 'icinga-idoutils-libdbi-mysql']:
+  #  ensure => present,
+  #} 
   
   class {'::mysql::server':
   } ->
