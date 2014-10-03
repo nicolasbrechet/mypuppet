@@ -31,6 +31,6 @@ class site::profiles::monitoring_server {
   Group['nrpe'] 
   -> User['nrpe'] 
   -> Class['nrpe'] 
-  -> Class['nrpre::monitoring']
+  -> Class['nrpe::monitoring']
   
 }
