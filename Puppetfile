@@ -50,3 +50,4 @@ mod 'alup/rbenv'
 
 mod 'puppetlabs/mysql'
 mod 'icinga',               :git => 'https://github.com/aswen/puppet-module-icinga'
+mod 'theforeman/concat_native'
