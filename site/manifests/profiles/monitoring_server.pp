@@ -6,19 +6,22 @@ class site::profiles::monitoring_server {
   apt_key { 'ppa-formorer-key':
       ensure => 'present',
       id     => '36862847'
-  } ->  
-  package{['icinga', 'icinga-doc', 'icinga-idoutils', 'icinga-web', 'nagios-plugins']:
-    ensure => installed,
-  }
+  } -> 
+  icinga::server { 'monitoring server':
+    icinga_configure_webserver  => true,
+    icinga_webserver            => 'apache2', #default
+    icinga_webserver_port       => '80', 
+    icinga_vhostname            => 'monitoring.nicolasbrechet.com',
     
-  class { '::mysql::server':
-    root_password    => 'password',
+    # => Generates /etc/icinga/monitoring.nicolasbrechet.com-apache2.conf.example 
+  } ->
+  class { 'apache':
+    default_vhost => false,
+  } ->
+  file { '/etc/icinga/monitoring.nicolasbrechet.com-apache2.conf.example':
+     ensure => 'link',
+     target => '/etc/apache2/sites-enabled/25-monitoring.nicolasbrechet.com-apache2.conf',
   }
+
   
-  mysql::db { 'icinga_web':
-   user     => 'icinga_web',
-   password => 'icinga_web',
-   host     => 'localhost',
-   grant    => ['SELECT', 'INSERT', 'UPDATE', 'DELETE', 'CREATE', 'DROP', 'ALTER', 'INDEX'],
-  }
 }
