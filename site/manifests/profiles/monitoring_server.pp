@@ -7,7 +7,7 @@ class site::profiles::monitoring_server {
       ensure => 'present',
       id     => '36862847'
   } -> 
-  icinga::server { 'monitoring server':
+  class { '::icinga::server':
     icinga_configure_webserver  => true,
     icinga_webserver            => 'apache2', #default
     icinga_webserver_port       => '80', 
