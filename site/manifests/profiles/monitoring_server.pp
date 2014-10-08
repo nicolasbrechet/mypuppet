@@ -18,9 +18,10 @@ class site::profiles::monitoring_server {
   class { 'apache':
     default_vhost => false,
   } ->
-  file { '/etc/icinga/monitoring.nicolasbrechet.com-apache2.conf.example':
-     ensure => 'link',
-     target => '/etc/apache2/sites-enabled/25-monitoring.nicolasbrechet.com-apache2.conf',
+  file { "My apache vhost config":
+    target  => '/etc/icinga/monitoring.nicolasbrechet.com-apache2.conf.example',
+    ensure  => 'link',
+    path    => '/etc/apache2/sites-enabled/25-monitoring.nicolasbrechet.com-apache2.conf',
   }
 
   
