@@ -48,6 +48,5 @@ mod 'logrotate',            :git => 'https://github.com/evenup/evenup-logrotate'
 mod 'sysctl',               :git => 'https://github.com/thias/puppet-sysctl'
 mod 'alup/rbenv'
 
-mod 'puppetlabs/mysql'
-mod 'icinga',               :git => 'https://github.com/aswen/puppet-module-icinga'
-mod 'theforeman/concat_native'
+mod 'icinga2',              :git => 'https://github.com/Icinga/puppet-icinga2'
+mod 'postgresql',           :git => 'https://github.com/puppetlabs/puppetlabs-postgresql'

@@ -1,31 +1,37 @@
 class site::profiles::monitoring_server {
-  # add the Ubuntu PPA for Icinga
-  apt::ppa { 'ppa:formorer/icinga': }
-  apt::ppa { 'ppa:formorer/icinga-web': }
-  
-  apt_key { 'ppa-formorer-key':
-      ensure => 'present',
-      id     => '36862847'
-  } 
-  class { '::icinga::server':
-    icinga_configure_webserver  => true,
-    icinga_webserver            => 'apache2', #default
-    icinga_webserver_port       => '80', 
-    icinga_vhostname            => 'monitoring.nicolasbrechet.com',
-    
-    # => Generates /etc/icinga/monitoring.nicolasbrechet.com-apache2.conf.example 
-  } ->
-  file { "My apache vhost config":
-    target  => '/etc/icinga/monitoring.nicolasbrechet.com-apache2.conf.example',
-    ensure  => 'link',
-    path    => '/etc/apache2/sites-enabled/25-monitoring.nicolasbrechet.com-apache2.conf',
+  class { 'postgresql::server': }
+
+  postgresql::server::db { 'icinga2_data':
+    user     => 'icinga2',
+    password => postgresql_password('icinga2', 'password'),
   }
   
-  class { 'apache':
-    default_vhost => false,
+  #Install Icinga 2:
+  class { 'icinga2::server': 
+    server_db_type  => 'pgsql',
+    db_host         => 'localhost'
+    db_port         => '5432'
+    db_name         => 'icinga2_data'
+    db_user         => 'icinga2'
+    db_password     => 'password',
+    server_install_nagios_plugins => false,
+    install_mail_utils_package => true,
   }
   
-
-
+  icinga2::object::idopgsqlconnection { 'postgres_connection':
+     target_dir       => '/etc/icinga2/features-enabled',
+     target_file_name => 'ido-pgsql.conf',
+     host             => '127.0.0.1',
+     port             => 5432,
+     user             => 'icinga2',
+     password         => 'password',
+     database         => 'icinga2_data',
+     categories       => ['DbCatConfig', 'DbCatState', 'DbCatAcknowledgement', 'DbCatComment', 'DbCatDowntime', 'DbCatEventHandler' ],
+  }
+  
+  class { 'icinga2::nrpe':
+    nrpe_allowed_hosts                => ['92.222.172.34', '127.0.0.1'],
+    allow_command_argument_processing => 0, # set to 1 to allow /!\ security risk!
+  }
   
 }
