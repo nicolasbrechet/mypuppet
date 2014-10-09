@@ -49,4 +49,5 @@ mod 'sysctl',               :git => 'https://github.com/thias/puppet-sysctl'
 mod 'alup/rbenv'
 
 mod 'icinga2',              :git => 'https://github.com/Icinga/puppet-icinga2'
-mod 'postgresql',           :git => 'https://github.com/puppetlabs/puppetlabs-postgresql'
+#mod 'postgresql',           :git => 'https://github.com/puppetlabs/puppetlabs-postgresql'
+mod 'puppetlabs/mysql',     :ref => '2.3.1'

@@ -1,26 +1,26 @@
 class site::profiles::monitoring_server {
-  class { 'postgresql::server': }
+  class { 'mysql::server': }
 
-  postgresql::server::db { 'icinga2_data':
+  mysql::db { 'icinga2_data':
     user     => 'icinga2',
-    password => postgresql_password('icinga2', 'password'),
+    password => 'password',
   }
   
   #Install Icinga 2:
   class { 'icinga2::server': 
-    server_db_type  => 'pgsql',
-    db_host         => 'localhost'
-    db_port         => '5432'
-    db_name         => 'icinga2_data'
-    db_user         => 'icinga2'
+    server_db_type  => 'mysql',
+    db_host         => 'localhost',
+    db_port         => '5432',
+    db_name         => 'icinga2_data',
+    db_user         => 'icinga2',
     db_password     => 'password',
     server_install_nagios_plugins => false,
     install_mail_utils_package => true,
   }
   
-  icinga2::object::idopgsqlconnection { 'postgres_connection':
+  icinga2::object::idomysqlconnection { 'mysql_connection':
      target_dir       => '/etc/icinga2/features-enabled',
-     target_file_name => 'ido-pgsql.conf',
+     target_file_name => 'ido-mysql.conf',
      host             => '127.0.0.1',
      port             => 5432,
      user             => 'icinga2',
