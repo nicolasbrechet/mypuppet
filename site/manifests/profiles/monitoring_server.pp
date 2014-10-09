@@ -30,8 +30,7 @@ class site::profiles::monitoring_server {
      categories       => ['DbCatConfig', 'DbCatState', 'DbCatAcknowledgement', 'DbCatComment', 'DbCatDowntime', 'DbCatEventHandler' ],
   } ->  
   class { 'icinga2::nrpe':
-    nrpe_allowed_hosts                => ['92.222.172.34', '127.0.0.1'],
-    allow_command_argument_processing => 0, # set to 1 to allow /!\ security risk!
+    nrpe_allowed_hosts                => ['92.222.172.34', '127.0.0.1']
   }
   
   
