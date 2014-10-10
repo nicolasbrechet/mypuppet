@@ -41,8 +41,8 @@ class site::profiles::icinga2_web {
     sql      => '/opt/sqlimport.sql',
   }
   
-  Vcsrepo["/opt/icingaweb2"] <| |> 
-    -> Concat["/opt/sqlimport.sql"] <| |> 
-    -> Mysql::Db[$icingaweb2_db_name] <| |> 
+  Vcsrepo["/opt/icingaweb2"]
+    -> Concat["/opt/sqlimport.sql"]
+    -> Mysql::Db[$icingaweb2_db_name]
   
 }
