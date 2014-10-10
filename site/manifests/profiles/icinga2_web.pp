@@ -4,6 +4,9 @@ class site::profiles::icinga2_web {
   $icingaweb2_user = 'icinga2web'
   $icingaweb2_password = 'password'
   
+  # MySQL DB Setup
+  include '::mysql::server'
+  
   vcsrepo { "/opt/icingaweb2":
     ensure   => present,
     provider => git,
@@ -14,27 +17,27 @@ class site::profiles::icinga2_web {
     owner   => 'root',
     group   => 'root',
     mode    => '0644'
-  } 
+  } ->
   concat::fragment { 'accounts':
     target  => "/opt/sqlimport.sql",
     content => '/opt/icingaweb2/etc/schema/accounts.mysql.sql',
     order   => '01'
-  } 
+  } ->
   concat::fragment { 'preferences':
     target  => "/opt/sqlimport.sql",
     content => '/opt/icingaweb2/etc/schema/preferences.mysql.sql',
     order   => '02'
-  }
-  
-  # MySQL DB Setup
-  include '::mysql::server'
-  
+  } ->
   mysql::db { $icingaweb2_db_name:
     user     => $icingaweb2_user,
     password => $icingaweb2_password,
     sql      => '/opt/sqlimport.sql',
-    require  => [Concat["/opt/sqlimport.sql"], concat::fragment['accounts'], concat::fragment['preferences']],
+    require  => Concat["/opt/sqlimport.sql"] #, concat::fragment['accounts'], concat::fragment['preferences']],
   }
+  
+
+  
+
   
   
 }
