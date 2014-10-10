@@ -9,6 +9,10 @@ class site::profiles::icinga2_web {
   include zf
   include apache
   include php
+  include php::extension::mysql
+  
+  user {'wwwrun':}
+  group {'www':}
   
   vcsrepo { "/opt/icingaweb2":
     ensure   => present,
