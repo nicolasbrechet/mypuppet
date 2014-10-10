@@ -14,12 +14,12 @@ class site::profiles::icinga2_web {
     owner   => 'root',
     group   => 'root',
     mode    => '0644'
-  } ->
+  } 
   concat::fragment { 'accounts':
     target  => "/opt/sqlimport.sql",
     content => '/opt/icingaweb2/etc/schema/accounts.mysql.sql',
     order   => '01'
-  } ->
+  } 
   concat::fragment { 'preferences':
     target  => "/opt/sqlimport.sql",
     content => '/opt/icingaweb2/etc/schema/preferences.mysql.sql',
