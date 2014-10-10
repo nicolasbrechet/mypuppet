@@ -35,7 +35,7 @@ class site::profiles::icinga2_web {
     user     => $icingaweb2_user,
     password => $icingaweb2_password,
     sql      => '/opt/sqlimport.sql',
-    require  => Vcsrepo["/opt/icingaweb2"],
+    require  => Concat["/opt/sqlimport.sql"],
   }
   
   
