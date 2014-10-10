@@ -7,7 +7,7 @@ class site::profiles::icinga2_web {
     user     => 'icinga2web',
     password => 'password',
     sql      => '/opt/icingaweb2/etc/schema/accounts.mysql.sql', #,'/opt/icingaweb2/etc/schema/preferences.mysql.sql'],
-    require  => Vcsrepo["/var/icingaweb2"],
+    require  => Vcsrepo["/opt/icingaweb2"],
   } ->
   exec {"mysql -u icinga2web -p password icinga2web < etc/schema/preferences.mysql.sql":
   }  
