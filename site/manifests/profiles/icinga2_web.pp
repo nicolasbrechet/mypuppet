@@ -6,11 +6,13 @@ class site::profiles::icinga2_web {
   mysql::db { 'icinga2web':
     user     => 'icinga2web',
     password => 'password',
-    sql      => ['/opt/icingaweb2/etc/schema/accounts.mysql.sql','/opt/icingaweb2/etc/schema/preferences.mysql.sql'],
+    sql      => '/opt/icingaweb2/etc/schema/accounts.mysql.sql', #,'/opt/icingaweb2/etc/schema/preferences.mysql.sql'],
     require  => Vcsrepo["/var/icingaweb2"],
-  }
+  } ->
+  exec {"mysql -u icinga2web -p password icinga2web < etc/schema/preferences.mysql.sql":
+  }  
   
-  vcsrepo { "/var/icingaweb2":
+  vcsrepo { "/opt/icingaweb2":
     ensure   => present,
     provider => git,
     source   => 'git@github.com:Icinga/icingaweb2.git',
