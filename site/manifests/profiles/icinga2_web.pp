@@ -1,15 +1,18 @@
 class site::profiles::icinga2_web {
   
+  $icingaweb2_user = 'icinga2web'
+  $icingaweb2_password = 'password'
+  
   # MySQL DB Setup
   include '::mysql::server'
   
   mysql::db { 'icinga2web':
-    user     => 'icinga2web',
-    password => 'password',
-    sql      => '/opt/icingaweb2/etc/schema/accounts.mysql.sql', #,'/opt/icingaweb2/etc/schema/preferences.mysql.sql'],
+    user     => $icingaweb2_user,
+    password => $icingaweb2_password,
+    sql      => '/opt/icingaweb2/etc/schema/accounts.mysql.sql',
     require  => Vcsrepo["/opt/icingaweb2"],
   } ->
-  exec {"mysql -u icinga2web -p password icinga2web < etc/schema/preferences.mysql.sql":
+  exec {"mysql -u #{$icingaweb2_user} --password #{$icingaweb2_password} icinga2web < /opt/icingaweb2/etc/schema/preferences.mysql.sql":
   }  
   
   vcsrepo { "/opt/icingaweb2":
