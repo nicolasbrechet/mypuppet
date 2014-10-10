@@ -7,9 +7,15 @@ class site::profiles::icinga2_web {
   # MySQL DB Setup
   include '::mysql::server'
   include zf
-  include apache
+  class{'apache':
+    mpm_module => 'prefork',
+  }
+  include apache::mod::php
   include apache::mod::rewrite
   include php
+  include php::dev
+  include php::cli
+  include php::params
   include php::extension::mysql
   include php::extension::ldap
   
@@ -47,8 +53,21 @@ class site::profiles::icinga2_web {
     sql      => '/opt/sqlimport.sql',
   }
   
+  exec {'icinga_configure':
+    command => 'exec ./configure && make install',
+    cwd     => '/opt/icingaweb2/'
+  }
+  
+  exec {'icinga_apache_config':
+    command => 'cp etc/apache/icingaweb.conf /etc/apache2/sites-enabled/15-icingaweb.conf',
+    cwd     => '/opt/icingaweb2/',
+    notify  => Service['apache2']
+  }
+  
   Vcsrepo["/opt/icingaweb2"]
     -> Concat["/opt/sqlimport.sql"]
     -> Mysql::Db[$icingaweb2_db_name]
+    -> Exec['icinga_configure']
+    -> Exec['icinga_apache_config']
   
 }
