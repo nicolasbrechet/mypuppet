@@ -8,8 +8,10 @@ class site::profiles::icinga2_web {
   include '::mysql::server'
   include zf
   include apache
+  include apache::mod::rewrite
   include php
   include php::extension::mysql
+  include php::extension::ldap
   
   user {'wwwrun':}
   group {'www':}
