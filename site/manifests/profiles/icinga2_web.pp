@@ -6,6 +6,9 @@ class site::profiles::icinga2_web {
   
   # MySQL DB Setup
   include '::mysql::server'
+  include zf
+  include apache
+  include php
   
   vcsrepo { "/opt/icingaweb2":
     ensure   => present,
