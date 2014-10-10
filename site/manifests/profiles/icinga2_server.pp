@@ -1,8 +1,8 @@
-class site::profiles::monitoring_server {
+class site::profiles::icinga2_server {
   
   # MySQL DB Setup
-  class { 'mysql::server':
-  } ->
+  include '::mysql::server'
+  
   mysql::db { 'icinga2_data':
     user     => 'icinga2',
     password => 'password',
