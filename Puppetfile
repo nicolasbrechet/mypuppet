@@ -18,7 +18,7 @@ mod 'puppetlabs/apt',         '1.6.0'
 mod 'puppetlabs/concat',      '1.1.0'
 mod 'puppetlabs/firewall',    '1.1.2'
 mod 'puppetlabs/stdlib',      '4.2.2'
-mod 'puppetlabs/vcsrepo',     '1.1.x' # living on the edge
+mod 'puppetlabs/vcsrepo', :git => "https://github.com/puppetlabs/puppetlabs-vcsrepo.git", :ref => "1.1.x"
 mod 'richardc/datacat',       '0.6.0'
 #mod 'apache' ,        :git => "https://github.com/puppetlabs/puppetlabs-apache"
 mod 'puppetlabs_apt', :git => 'https://github.com/puppetlabs-operations/puppet-puppetlabs_apt.git', :ref => '0.0.3'
