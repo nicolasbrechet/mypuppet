@@ -36,7 +36,7 @@ class site::profiles::puppet::master {
   class {'dashing':
     dashing_basepath     => '/usr/share/dashing',
   } ->
-  dashing::instance {'puppet':
+  dashing::instance {'puppetdash':
     targz => "https://github.com/nicolasbrechet/puppetdash/archive/1.0.0.tar.gz",
     dashing_port     => '3030',
     dashing_dir      => "/usr/share/dashing/puppetdash",
