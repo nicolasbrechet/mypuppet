@@ -13,7 +13,6 @@ class site::profiles::puppet::master {
     reports            => 'puppetdb',
     servername         => $::fqdn,
     config_version_cmd => false,
-    backup_server      => false,
     reporturl          => '',
     ca                 => true,
     autosign           => hiera('puppet::server::autosign'),
