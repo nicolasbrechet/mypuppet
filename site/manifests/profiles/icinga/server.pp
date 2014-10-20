@@ -1,4 +1,4 @@
-class site::profiles::monitoring_server {
+class site::profiles::icinga::server {
   
   # MySQL DB Setup
   class { 'mysql::server':
