@@ -51,3 +51,5 @@ mod 'alup/rbenv'
 mod 'icinga2',              :git => 'https://github.com/Icinga/puppet-icinga2'
 #mod 'postgresql',           :git => 'https://github.com/puppetlabs/puppetlabs-postgresql'
 mod 'puppetlabs/mysql',     :ref => '2.3.1'
+
+mod 'dashing',              :git => 'https://github.com/nicolasbrechet/puppet-dashing'

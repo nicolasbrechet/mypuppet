@@ -33,4 +33,13 @@ class site::profiles::puppet::master {
     port       => 80,
   }
 
+  class {'dashing':
+  } ->
+  dashing::instance {'puppet':
+    targz => "https://github.com/nicolasbrechet/puppetdash/archive/1.0.0.tar.gz",
+    dashing_port     => '3030',
+    dashing_dir      => "$dashing::dashing_basepath/$name",
+    strip_parent_dir => true,
+  }
+
 }
