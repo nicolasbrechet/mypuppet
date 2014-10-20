@@ -11,7 +11,7 @@ mod 'puppetlabs/inifile',     '1.1.0'
 mod 'jfryman/nginx',          '0.0.9'
 mod 'puppetdb', :git => "https://github.com/puppetlabs/puppetlabs-puppetdb.git", :ref => 'cbcf042f5418ae1d8943588034f372817b3955cf'
 #mod 'puppet',   :git => "https://github.com/gloppasglop/puppet-puppet.git"
-mod 'puppet',   :git => "https://github.com/nicolasbrechet/puppet-puppet.git", :ref => 'veltigroup'
+mod 'puppet',   :git => "https://github.com/nicolasbrechet/puppet-puppet.git"
 
 mod 'puppetlabs/ntp',         '3.1.1'
 mod 'puppetlabs/apt',         '1.6.0'
