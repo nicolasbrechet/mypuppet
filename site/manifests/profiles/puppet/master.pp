@@ -7,8 +7,9 @@ class site::profiles::puppet::master {
   }
   
   class { '::puppet::server':
-    modulepath         => ['$confdir/environments/$environment/modules', '$confdir/environments/$environment/'],
-    manifest           => '$confdir/environments/$environment/site/manifests/site.pp',
+    #modulepath         => ['$confdir/environments/$environment/modules', '$confdir/environments/$environment/'],
+    #manifest           => '$confdir/environments/$environment/site/manifests/site.pp',
+    environmentpath    => '$confdir/environments',
     servertype         => 'passenger',
     reports            => 'puppetdb',
     servername         => $::fqdn,
