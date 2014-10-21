@@ -31,14 +31,14 @@ class site::profiles::puppet::master {
     port       => 80,
   }
 
-  class {'dashing':
-    dashing_basepath     => '/usr/share/dashing',
-  } ->
-  dashing::instance {'puppetdash':
-    targz => "https://github.com/nicolasbrechet/puppetdash/archive/1.0.0.tar.gz",
-    dashing_port     => '3030',
-    dashing_dir      => "/usr/share/dashing/puppetdash",
-    strip_parent_dir => true,
-  }
+  #class {'dashing':
+  #  dashing_basepath     => '/usr/share/dashing',
+  #} ->
+  #dashing::instance {'puppetdash':
+  #  targz => "https://github.com/nicolasbrechet/puppetdash/archive/1.0.0.tar.gz",
+  #  dashing_port     => '3030',
+  #  dashing_dir      => "/usr/share/dashing/puppetdash",
+  #  strip_parent_dir => true,
+  #}
 
 }

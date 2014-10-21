@@ -1,31 +1,14 @@
 class site::profiles::gitlab {
-  $gitlab_dbname	= hiera('gitlab::gitlab_dbname')
-  $gitlab_dbuser	= hiera('gitlab::gitlab_dbuser')
-  $gitlab_dbpwd 	= hiera('gitlab::gitlab_dbpwd')
-  
-  class { '::gitlab_requirements':
-    gitlab_dbname   => $gitlab_dbname,
-    gitlab_dbuser   => $gitlab_dbuser,
-    gitlab_dbpwd    => $gitlab_dbpwd,
-	}
-	  
-  class { '::gitlab':
-    git_email           => hiera('gitlab::git_email'),
-    gitlab_domain       => hiera('gitlab::gitlab_domain'),
-    gitlab_branch       => hiera('gitlab::gitlab_branch'),
-    gitlabshell_branch  => hiera('gitlab::gitlabshell_branch'),
-    gitlab_dbtype       => hiera('gitlab::gitlab_dbtype'),
-    gitlab_dbname       => $gitlab_dbname,
-    gitlab_dbuser       => $gitlab_dbuser,
-    gitlab_dbpwd        => $gitlab_dbpwd
+
+  class { 'gitlab' : 
+    puppet_manage_config   => true,
+    puppet_manage_backups  => true,
+    puppet_manage_packages => true,
+    ssl_certificate        => '/etc/gitlab/ssl/gitlab.crt',
+    ssl_certificate_key    => '/etc/gitlab/ssl/gitlab.key',
+    redirect_http_to_https => true,
+    backup_keep_time       => 5184000, # In seconds, 5184000 = 60 days
+    gitlab_default_projects_limit => 100,
   }
-  
-  package{'bundler':
-    ensure => present,
-    provider => 'gem',    
-  }
-  
-  Package['bundler'] 
-  -> Class['::gitlab_requirements'] 
-  -> Class['::gitlab']
+
 }

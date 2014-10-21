@@ -4,7 +4,7 @@ class site::profiles::base {
   include git
   
   package { ['fail2ban', 'htop']:
-    ensure => latest,
+    ensure => installed,
   }
   
   class { 'ssh::server':
