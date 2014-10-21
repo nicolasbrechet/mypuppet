@@ -2,9 +2,11 @@ class site::profiles::base {
   include ntp
   include apt
   include git
+
+  include fail2ban
   
-  package { ['fail2ban', 'htop']:
-    ensure => latest,
+  package { 'htop':
+    ensure => installed,
   }
   
   class { 'ssh::server':
